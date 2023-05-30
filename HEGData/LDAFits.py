@@ -1,7 +1,7 @@
 import numpy as np
 
 def fmap(zeta):
-    return 2. - 4/3*zeta**2 + 0.16979*zeta**3 + 0.16355*zeta**4
+    return 2. - 4/3*zeta**2 + 1/6*(1.0187*zeta**3 + 0.9813*zeta**4)
 
 def fmapInv(fb):
     return np.sqrt(3/4*(2-fb)) * (1. + (np.sqrt(4/3)-1.)*(2-fb))

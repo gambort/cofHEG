@@ -1,4 +1,5 @@
 import numpy as np
+from HEGData.LDAFits import fmap
 from Libs.RPAHelper import *
 
 import matplotlib.pyplot as plt
@@ -108,7 +109,7 @@ for Kn, n in enumerate(nAll):
 
     IRaw = IQG_Q2(CLindImag(Q, Gamma), Pre=Pre)
     for Kz, zeta in enumerate(zzeta):
-        ft = 2 - 4/3*zeta**2 + 0.16979*zeta**3 + 0.16355*zeta**4
+        ft = fmap(zeta)
         Gx = -ft/(3*ft-2)
 
         hp, hm = (1+zeta)**(1/3), (1-zeta)**(1/3)
@@ -141,7 +142,7 @@ for Kn, n in enumerate(nAll):
     np.savez("Data/RPA-Xi.npz", RPAData=RPAData)
 
     zeta = zzeta
-    f = 2 - 4/3*zeta**2 + 0.16979*zeta**3 + 0.16355*zeta**4
+    f = fmap(zeta)
     Gx = -f/(3*f-2)
 
     Deltac_RPA = (Xic_ot - Xic)/Xic
