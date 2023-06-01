@@ -39,11 +39,11 @@ for Krs, raw_rs in enumerate([1., 2., 5.]):
 
     ax.plot(epsx_ot/epsx_u, epsc_ot/epsc_u, "--",
             color=NiceColour("Orange"),
-            label="cof",
+            label="cofe",
             )
     ax.plot(epsx/epsx_u, epsc/epsc_u, "-",
             color=NiceColour("Navy"),
-            label="pol",
+            label="pol.",
             )
 
     

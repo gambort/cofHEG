@@ -85,7 +85,7 @@ if ShowOccs:
 
     for K, (Lbl,Col) in enumerate([("unpolarized", "Teal"),
                                    ("polarized", "Navy"),
-                                   ("cof ensemble", "Orange"),
+                                   ("cofe", "Orange"),
                                    ]):
         AddBorder(
             ax.text(0.12+K*0.25, 0.1, Lbl, color=NiceColour(Col),
@@ -98,7 +98,7 @@ if ShowOccs:
 
     ax.set_xticks([kfu, kfd, kf, kff],
                   ['$k_F^{\\uparrow}$', '$k_F^{\\downarrow}$',
-                   '$k_F$', '$\\bar{k}_F^{\\rm cof}$'])
+                   '$k_F$', '$\\bar{k}_F^{\\rm cofe}$'])
     
     ax.set_yticks([0,0.5,1,1.5,2.])
     ax.set_yticklabels(['0', '', '$\\uparrow$',
@@ -147,7 +147,7 @@ if ShowMultiOccs:
         if ax==axs[3]:
             for K, (Lbl,Col) in enumerate([
                     ("polarized gas", "Navy"),
-                    ("cof gas", "Orange"),
+                    ("cofe gas", "Orange"),
             ]):
                 AddBorder(
                     ax.text(0.55+K*0.25, 0.95, Lbl, color=NiceColour(Col),
@@ -181,13 +181,13 @@ if ShowEnhance:
     f = 2*Gx/(3*Gx+1)
 
     Fpol = ((1+zeta)**(4/3) + (1-zeta)**(4/3))/2.
-    Fcof = (3. + 1./Gx)**(1/3)
+    Fcofe = (3. + 1./Gx)**(1/3)
 
-    Fldpol = 1.96 - Fpol
-    Fldcof = 1.96 - Fcof
+    Fldpol  = 1.96 - Fpol
+    Fldcofe = 1.96 - Fcofe
 
-    Fhdpol = IWP91(zeta)# From WP91
-    Fhdcof = f/2.
+    Fhdpol  = IWP91(zeta)# From WP91
+    Fhdcofe = f/2.
     
     def Xi(F,x=None):
         if x is None:
@@ -207,13 +207,13 @@ if ShowEnhance:
             color=NiceColour("Navy"), fontsize=14,
             )
     
-    ax.plot(zeta, Xi(Fcof),
+    ax.plot(zeta, Xi(Fcofe),
             color=NiceColour("Orange"),
             )
-    ax.plot(zeta, Xi(Fhdcof), dashes=(2,1),
+    ax.plot(zeta, Xi(Fhdcofe), dashes=(2,1),
             color=NiceColour("Orange"),
             )
-    ax.text(0.4, Xi(Fhdcof, 0.4)+0.1, "cof",
+    ax.text(0.4, Xi(Fhdcofe, 0.4)+0.1, "cofe",
             color=NiceColour("Orange"), fontsize=14,
             )
 

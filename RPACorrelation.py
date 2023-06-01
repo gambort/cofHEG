@@ -152,12 +152,12 @@ for Kn, n in enumerate(nAll):
     ax.plot(f, Xic, "-.", color=NiceColour(Kn),
             label="pol. c factor" if Kn==0 else "")
     ax.plot(f, Xic_ot, "-", color=NiceColour(Kn),
-            label="cof c factor" if Kn==0 else "")
+            label="cofe c factor" if Kn==0 else "")
     
     X = (2/f)**(1/3)
     Xic_ot_ld = 1. + (Xic_ot[-1]-Xic_ot[0])/(2**(1/3)-1)*(X-1)
     ax.plot(f, Xic_ot_ld, ":", color=NiceColour(Kn),
-            label="cof x factor" if Kn==0 else "")
+            label="cofe x factor" if Kn==0 else "")
 
     wf = 1+0*f
     _,P=FitPolyfb(f, wf, Xic_ot, 1., Xic_ot[-1])

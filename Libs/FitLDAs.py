@@ -10,11 +10,6 @@ Cinf, Cinfp = 0.8959, 1.33 # From 10.1063/1.5078565
 Cx = 0.458165 # Exchange factor
 
 
-def zeta_to_fb(zeta):
-    # Has same exchange energy
-    fb = 2 - 4/3*zeta**2 + 0.16979*zeta**3 + 0.16355*zeta**4
-
-    return fb
 
 def c_PW92(zeta=None, fb=None,
            Scale1=1.):
@@ -47,7 +42,7 @@ def Lim_to_Param(alpha, c0, c1, Cinf, Cinfp, fx, spinFit=False):
     #beta2 = 0.
 
     beta4 = alpha/(Cinf - Cx*fx)
-    beta3 = beta4**2*Cinfp/alpha
+    beta3 = beta4**2*Cinfp/max(alpha, 1e-4)
 
     return (A, alpha, beta1, beta2, beta3, beta4)
 
@@ -123,7 +118,7 @@ def DoFit(HEGModel, FitMode="SPI"):
         epscData[Kz,:] = epsc*1.
 
         if FitID in ("NEW", "MAP", "COF", "EOT"):
-            fb = 2 - 4/3*z**2 + 0.1698*z**3 + 0.1635*z**4
+            fb = fmap(z)
             Pz[z] = Fit_alpha(rs, epsc, fb=fb)
         else:
             Pz[z] = Fit_alpha(rs, epsc, zeta=z)

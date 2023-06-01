@@ -12,7 +12,7 @@ def ts(rs, zeta=0.):
     return 1.10495/rs**2 *\
         ( (1+zeta)**(5/3) + (1-zeta)**(5/3) )/2
 
-def ts_cof(rs, fb=2.):
+def ts_cofe(rs, fb=2.):
     return 1.10495/rs**2 * (2/fb)**(2/3)
 
 def F(rs, P, p=0, c=0.):
@@ -28,9 +28,9 @@ def LDA_Eot(rs, fb=2., Gx=None, Sum=False):
     if not(Gx is None):
         # Expresses things using on-top exchange hole
         fb = 2*Gx/(3*Gx+1)
-    return LDA_cof(rs, fb=fb, Sum=Sum)
+    return LDA_cofe(rs, fb=fb, Sum=Sum)
 
-def LDA_cof(rs, fb=2., Gx=None, Sum=False):
+def LDA_cofe(rs, fb=2., Gx=None, Sum=False):
     if not(Gx is None):
         # Expresses things using on-top exchange hole
         fb = 2*Gx/(3*Gx+1)
