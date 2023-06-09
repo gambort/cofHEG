@@ -3,6 +3,7 @@
  * HEGData/LDAFits.py
 
 ```python
+import numpy as np
 from HEGData.LDAFits import *
 
 rs = np.logspace(-2,2,21)
