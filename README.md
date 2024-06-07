@@ -21,3 +21,5 @@ The paper uses:
 * RPAcorrelation.py does the RPA calculations and produces Figures 4
 * Plot_xiMap.py produces Figure 5 (after RPAcorrelation.py is run)
 
+Additional data, including error data for molecules from TDLDA, MOM and eLDA, may be found in the Data folder.
+
